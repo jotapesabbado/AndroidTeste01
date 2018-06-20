@@ -1,9 +1,7 @@
 package com.example.joo.androidteste01;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,15 +22,17 @@ public class EmpresaListAdapter extends ArrayAdapter<Empresas> {
     int mResource;
 
 
-    public EmpresaListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Empresas> objects) {
+
+    public EmpresaListAdapter(Context context, int resource, ArrayList<Empresas> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
+
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         /*Get PEGA as informações das empresas*/
         String nome = getItem(position).getNome();
@@ -49,6 +49,10 @@ public class EmpresaListAdapter extends ArrayAdapter<Empresas> {
         TextView tvNome = (TextView) convertView.findViewById(R.id.titulo);
         TextView tvHorario = (TextView) convertView.findViewById(R.id.textView2);
         CheckBox chFavorito= (CheckBox) convertView.findViewById(R.id.checkBox);
+
+        tvNome.setText(nome);
+        tvHorario.setText(horario);
+        chFavorito.setChecked(favorito);
 
         return convertView;
 

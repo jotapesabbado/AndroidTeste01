@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+
+    //TESTES
+    TextView teste;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         //LISTA
         ListView lista = (ListView)findViewById(R.id.lista);
         Log.d(TAG,"onCreate: Started.");
+
+
 
         //LISTA
 
@@ -46,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /*ADD Empresas no vetor*/
-        ArrayList<Empresas> listaEmpresas = new ArrayList<>();
+       ArrayList<Empresas> listaEmpresas = new ArrayList<>();
         listaEmpresas.add(exemplo1);
         listaEmpresas.add(exemplo2);
         listaEmpresas.add(exemplo3);
@@ -56,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     /*Adaptador de lista, para que mostre na forma do layout criado*/
         EmpresaListAdapter adapter = new EmpresaListAdapter(this, R.layout.list_layout, listaEmpresas);
         lista.setAdapter(adapter);
+
     }
 
     //FILTRO
@@ -87,9 +95,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    //TESTE DO CLICK_LAYOUT
     public void Teste(View view) {
         setContentView(R.layout.click_layout);
-
 
     }
 }
