@@ -19,8 +19,19 @@ public class EmpresaListAdapter extends ArrayAdapter<Empresas> {
 
     private static final String TAG = "EmpresaListAdapter";
     private Context mContext;
-    int mResource;
+    private int mResource;
+    //private int lasposition = -1;
 
+    /*ESSA CLASSE FOI CRIADA SOMENTE POR QUE O
+    * SITE DO ANDROID DIZIA QUE ERA UMA BOA PRATICA
+    * E EVITA PROBLEMAS COM NUMERO ELEVADO DE INFORMAÇÕES
+    * */
+
+    static class ViewHolder{
+        TextView tvNome;
+        TextView tvHorario;
+        CheckBox chFavorito;
+    }
 
 
     public EmpresaListAdapter(Context context, int resource, ArrayList<Empresas> objects) {
@@ -42,20 +53,51 @@ public class EmpresaListAdapter extends ArrayAdapter<Empresas> {
 
         /*Cria o objeto Empresas com as informações*/
         Empresas empresa = new Empresas(nome,horario,favorito);
+        /*
+        //MOSTRAR ANIMAÇÃO
+        final View result;
+        */
+        ViewHolder holder;
 
-        //INFORMAÇÕES INFLANDO AS ESTRUTURAS DE LAYOUT
-        LayoutInflater inflater = LayoutInflater.from(mContext);
-        convertView = inflater.inflate(mResource, parent, false);
+        //LOGICA PARA QUE SÓ CARREGUE O QUE ESTIVER SENDO MOSTRADO
+        //PARA QUE FIQUE MAIS LEVE E RAPIDO
+        if (convertView == null){
 
-        //ESTRUTURAS QUE REPRESENTANTES DO LAYOUT list_layout
-        TextView tvNome = (TextView) convertView.findViewById(R.id.titulo);
-        TextView tvHorario = (TextView) convertView.findViewById(R.id.textView2);
-        CheckBox chFavorito= (CheckBox) convertView.findViewById(R.id.checkBox);
+            //INFORMAÇÕES INFLANDO AS ESTRUTURAS DE LAYOUT
+            LayoutInflater inflater = LayoutInflater.from(mContext);
+            convertView = inflater.inflate(mResource, parent, false);
 
+            //ESTRUTURAS QUE REPRESENTANTES DO LAYOUT list_layout
+
+            holder = new ViewHolder();
+            holder.tvNome = (TextView) convertView.findViewById(R.id.titulo);
+            holder.tvHorario = (TextView) convertView.findViewById(R.id.textView2);
+            holder.chFavorito= (CheckBox) convertView.findViewById(R.id.checkBox);
+
+            //result = convertView;
+
+            convertView.setTag(holder);
+        }else{
+            /*QUANDO ESSE ITEM APARECER UMA VEZ FICARA GUARDADO EM UMA MEMORIA TEPORARIA
+            * PARA QUE NAO SEJA NECESSARIO CARREGAR TODA VEZ
+            * DEIXANDO MAIS LEVE E RAPIDO*/
+            holder = (ViewHolder) convertView.getTag();
+            //result = convertView;
+        }
+        /*
+        //declarar a animação
+
+
+        Animation animation = AnimationUtils.loadAnimation(mContext,
+                (position > lasposition) ? R.anim.load_down_anim : R.anim.load_up_anim);
+        result.startAnimation(animation);
+        lasposition = position;
+        */
         //VALORES RESPECTIVOS
-        tvNome.setText(nome);
-        tvHorario.setText(horario);
-        chFavorito.setChecked(favorito);
+        holder.tvNome.setText(nome);
+        holder.tvHorario.setText(horario);
+        holder.chFavorito.setChecked(favorito);
+
 
         return convertView;
 
