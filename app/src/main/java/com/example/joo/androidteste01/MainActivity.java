@@ -87,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void Teste(View view) {
+        setContentView(R.layout.click_layout);
+
+
+    }
 }
 
 
