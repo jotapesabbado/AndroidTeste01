@@ -43,13 +43,16 @@ public class EmpresaListAdapter extends ArrayAdapter<Empresas> {
         /*Cria o objeto Empresas com as informações*/
         Empresas empresa = new Empresas(nome,horario,favorito);
 
+        //INFORMAÇÕES INFLANDO AS ESTRUTURAS DE LAYOUT
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
 
+        //ESTRUTURAS QUE REPRESENTANTES DO LAYOUT list_layout
         TextView tvNome = (TextView) convertView.findViewById(R.id.titulo);
         TextView tvHorario = (TextView) convertView.findViewById(R.id.textView2);
         CheckBox chFavorito= (CheckBox) convertView.findViewById(R.id.checkBox);
 
+        //VALORES RESPECTIVOS
         tvNome.setText(nome);
         tvHorario.setText(horario);
         chFavorito.setChecked(favorito);
