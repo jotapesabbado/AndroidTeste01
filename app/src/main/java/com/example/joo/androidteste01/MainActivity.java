@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         Empresas exemplo4 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
         Empresas exemplo5 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",false);
 
-        Empresas exemplo6 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
+
 
     /*ADD Empresas no vetor*/
        ArrayList<Empresas> listaEmpresas = new ArrayList<>();
