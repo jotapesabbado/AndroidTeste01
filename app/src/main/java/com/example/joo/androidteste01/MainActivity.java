@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         //LISTA
 
     /*Criar OBJETOS Empresas */
+
+    //
 //        //Empresas exemplo1 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
 //        Empresas exemplo2 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
 //        Empresas exemplo3 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",false);
