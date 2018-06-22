@@ -32,21 +32,23 @@ public class MainActivity extends AppCompatActivity {
         //LISTA
 
     /*Criar OBJETOS Empresas */
-        Empresas exemplo1 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
-        Empresas exemplo2 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
-        Empresas exemplo3 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",false);
-        Empresas exemplo4 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
-        Empresas exemplo5 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",false);
-
-       // Empresas exemplo6 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
+//        //Empresas exemplo1 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
+//        Empresas exemplo2 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
+//        Empresas exemplo3 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",false);
+//        Empresas exemplo4 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",true);
+//        Empresas exemplo5 = new Empresas("CLIC CAMAQUÂ","08:00 AS 20:00",false);
 
     /*ADD Empresas no vetor*/
        ArrayList<Empresas> listaEmpresas = new ArrayList<>();
-        listaEmpresas.add(exemplo1);
-        listaEmpresas.add(exemplo2);
-        listaEmpresas.add(exemplo3);
-        listaEmpresas.add(exemplo4);
-        listaEmpresas.add(exemplo5);
+
+        //adicionar sem instanciar cada objeto
+        for (int cont=0;cont<10;cont++){
+        listaEmpresas.add(new Empresas("CLIC","08:00 AS 20:00",true));
+         }
+//        listaEmpresas.add(exemplo2);
+//        listaEmpresas.add(exemplo3);
+//        listaEmpresas.add(exemplo4);
+//        listaEmpresas.add(exemplo5);
 
     /*Adaptador de lista, para que mostre na forma do layout criado*/
         EmpresaListAdapter adapter = new EmpresaListAdapter(this, R.layout.list_layout, listaEmpresas);
